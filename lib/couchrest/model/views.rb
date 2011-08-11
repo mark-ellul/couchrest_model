@@ -123,7 +123,8 @@ module CouchRest
           when Hash
             query.update(args.first)
           end
-          view(name, query).first
+          result = view(name, query)
+	  result.nil? ? result : result.first
         end
 
         private
